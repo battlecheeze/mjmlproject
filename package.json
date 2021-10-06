@@ -1,0 +1,25 @@
+{
+  "name": "mjml-projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "clean": "gulp clean"
+  },
+  "author": "Christian Provido",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.27.4",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "htmlmin": "^0.0.7",
+    "mjml": "^4.10.1"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.2",
+    "gulp-mjml": "^4.0.2"
+  }
+}

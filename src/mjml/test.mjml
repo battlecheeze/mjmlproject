@@ -1,0 +1,24 @@
+<mjml owa="desktop" lang="en">
+  <mj-head>
+    <mj-include path="./partials/head.mjml" />
+    <mj-include path="./css/style.css" type="css" />
+  </mj-head>
+  <mj-body>
+    <mj-include path="./partials/header.mjml" />
+    <mj-section>
+      <mj-column>
+        <mj-text font-family="Roboto Slab">
+          Hello World
+        </mj-text>
+        <mj-text>
+           test
+        </mj-text>
+      </mj-column>
+      <mj-column>
+         <mj-text>
+            another text here
+         </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
