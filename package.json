@@ -24,6 +24,7 @@
     "gulp-remove-empty-lines": "^0.1.0",
     "gulp-sass": "^5.0.0",
     "mjml-core": "^4.10.4",
+    "node-sass": "^6.0.1",
     "sass": "^1.43.3"
   }
 }
