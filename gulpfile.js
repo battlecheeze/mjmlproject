@@ -3,7 +3,9 @@ const gulp = require('gulp'),
       browserSync = require('browser-sync').create(),
       del = require('del'),
       removeEmptyLines = require('gulp-remove-empty-lines'),
-      sass = require('gulp-sass')(require('sass'));
+      sass = require('gulp-sass')(require('node-sass')); // << good on compact and nested
+      //sass = require('gulp-sass')(require('sass')); << won't let me use compact and nested
+      
 
 // Require your own components if need, and your mjmlEngine (possibly with options)
 // require('./components)
@@ -55,7 +57,7 @@ function mjmlEditor() {
 function editorCSS() {
    return gulp.src([sassWatch, sassArchive])
    .pipe(sass.sync({
-      outputStyle: 'compressed'
+      outputStyle: 'compact'
    }).on('error', sass.logError))
    .pipe(gulp.dest(outputCSS))
    .pipe(browserSync.stream());
@@ -100,7 +102,8 @@ function browserSYNC(done) {
 function watchFiles() {
    //gulp.watch(sassWatch, editorCSS);
    //gulp.watch([sassWatch, outputHTML], gulp.series(editorCSS, mjmlEditor)).on('change', browserSync.reload); << didn't work
-   gulp.watch([sassWatch, outputHTML], gulp.parallel(editorCSS, mjmlEditor)).on('change', browserSync.reload); // it works and it loads both
+   //gulp.watch([sassWatch, outputHTML], gulp.parallel(editorCSS, mjmlEditor)).on('change', browserSync.reload); // it works and it loads both
+   gulp.watch(sassWatch, gulp.parallel(editorCSS, mjmlEditor)); // it works and it loads both
    gulp.watch(mjmlWatch, mjmlEditor);
    gulp.watch(outputHTML).on('change', browserSync.reload);
 }
