@@ -1,0 +1,47 @@
+<mjml>
+   <mj-head>
+      <mj-title>Hello, Let's start the project!</mj-title>      
+      <mj-include path="../css/index.css" type="css" css-inline="inline" />
+      <mj-include path="../css/index2.css" type="css" />
+   </mj-head>
+   <mj-body css-class="body-color">
+      <mj-section background-url="https://picsum.photos/600/300">
+         <mj-column>
+            <mj-text>
+               <a href="./html/test.html">Test</a>
+            </mj-text>            
+         </mj-column>
+      </mj-section>
+      <mj-section>
+         <mj-column width="600px">
+            <mj-text css-class="test">
+               <a href="./html/Template_2022_GMC_SierraMCM_RevealCadence_T1.html">2022 GMC Sierra</a>
+            </mj-text>
+         </mj-column>
+      </mj-section>
+      <mj-section>
+         <mj-column width="600px">
+            <mj-text>
+               <a target="_blank" href="./html/Template_CCA_CP_2021_SEMA_NOVEMBER.html">CCA_CP_2021_SEMA_NOVEMBER</a>
+            </mj-text>
+         </mj-column>
+      </mj-section>
+      <mj-section>
+         <mj-column width="600px">
+            <mj-text css-class="test4-h1">
+               <a target="_blank" href="./html/Template_VPP21_MIL_Veteran_Day_Em.html">Template_VPP21_MIL_Veteran_Day_Em</a>
+               <h1>Hello I'm a header and I'm a italic header</h1>
+            </mj-text>
+         </mj-column>
+      </mj-section>
+      <mj-section>
+         <mj-column width="600px">
+            <mj-text css-class="test3-p">
+               <a target="_blank" href="./html/test2.html">Test 2</a>
+               <p>Welcome P tag</p>
+            </mj-text>
+         </mj-column>
+      </mj-section>
+      <mj-include path="../partials/test-partial.mjml" />
+   </mj-body>
+</mjml>

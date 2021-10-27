@@ -4,7 +4,10 @@ const gulp = require('gulp'),
       del = require('del'),
       removeEmptyLines = require('gulp-remove-empty-lines'),
       sass = require('gulp-sass')(require('node-sass')); // << good on compact and nested
-      //sass = require('gulp-sass')(require('sass')); << won't let me use compact and nested
+      // even though node-sass is deprecated, I only use simple css for email building
+      //sass = require('gulp-sass')(require('sass')); // << won't let me use compact and nested
+      //According to Dart Sass npmjs website "Only the "expanded" and "compressed" values 
+      //of outputStyle are supported."
       
 
 // Require your own components if need, and your mjmlEngine (possibly with options)
@@ -20,7 +23,8 @@ const    // source
       sassWatch = "src/sass/" + globDir + ".scss",
       outputCSS = "src/css/",
       // partials 
-      mjmlPartials = "!src/partials/" + globDir + ".mjml",
+      mjmlPartials = "src/partials/" + globDir + ".mjml",
+      partialsArchive ="!src/partials/archive/" + globDir + ".mjml"
       // distribution
       imageDist = "dist/images/",
       htmlDist = "dist/html/"
@@ -57,7 +61,8 @@ function mjmlEditor() {
 function editorCSS() {
    return gulp.src([sassWatch, sassArchive])
    .pipe(sass.sync({
-      outputStyle: 'compact'
+      //outputStyle: 'compressed' // compressed and expanded only available in dart sass
+      outputStyle: 'compact' // node-sass support 'compact' and 'nested'
    }).on('error', sass.logError))
    .pipe(gulp.dest(outputCSS))
    .pipe(browserSync.stream());
@@ -104,6 +109,7 @@ function watchFiles() {
    //gulp.watch([sassWatch, outputHTML], gulp.series(editorCSS, mjmlEditor)).on('change', browserSync.reload); << didn't work
    //gulp.watch([sassWatch, outputHTML], gulp.parallel(editorCSS, mjmlEditor)).on('change', browserSync.reload); // it works and it loads both
    gulp.watch(sassWatch, gulp.parallel(editorCSS, mjmlEditor)); // it works and it loads both
+   gulp.watch(mjmlPartials, mjmlEditor);
    gulp.watch(mjmlWatch, mjmlEditor);
    gulp.watch(outputHTML).on('change', browserSync.reload);
 }
